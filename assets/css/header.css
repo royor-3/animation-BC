@@ -1,0 +1,116 @@
+header {
+    display: flex;
+    position: relative;
+    padding: 30px;
+    transform: translateY(-100%);
+    opacity: 0;
+    animation: fadeInTop 1300ms 50ms forwards;
+}
+
+/* Brand */
+header .brand {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -10%);
+
+    text-align: center;
+    font-family: var(--brand-font);
+    font-weight: 600;
+    color: var(--clr-text);
+}
+
+.brand strong {
+    font-size: 40px;
+    line-height: 0.6;
+}
+
+.brand span {
+    font-weight: 100;
+}
+
+/* Navigation */
+header nav {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+header ul {
+    display: flex;
+    gap: var(--gap);
+}
+
+.brand__links {
+    --gap: 30px;
+}
+
+.brand__links a {
+    color: var(--clr-text);
+    text-transform: uppercase;
+    font-family: Helvetica, sans-serif;
+}
+.brand__links li {
+    position: relative;
+    overflow: hidden;
+}
+.brand__links li:hover {
+    --wizz: 4%;
+    --wizz-neg: -4%;
+    animation: wizzLink 100ms forwards;
+}
+.brand__links a::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    background-color: var(--clr-text);
+    height: 1px;
+    width: 100%;
+    transform: translateX(-101%);
+    transition: transform 300ms;
+}
+.brand__links li:hover > a::before {
+    transform: translateX(0%);
+}
+.brand__icons {
+    --gap: 20px;
+}
+.brand__icons li {
+    cursor: pointer;
+}
+.brand__icons svg:hover {
+    --wizz: 20%;
+    --wizz-neg: -20%;
+    animation: wizzLink 100ms forwards;
+    filter: drop-shadow(0 0 4px var(--clr-text));
+}
+
+@keyframes fadeInTop {
+    100% {
+        transform: translateY(0%);
+        opacity: 1;
+    }
+}
+
+@keyframes wizzLink {
+    0% {
+        transform: translateX(var(--wizz-neg));
+    }
+    20% {
+        transform: translateX(var(--wiz));
+    }
+    40% {
+        transform: translateX(var(--wizz-neg));
+    }
+    60% {
+        transform: translateX(var(--wiz));
+    }
+    80% {
+        transform: translateX(var(--wizz-neg));
+    }
+    100% {
+        transform: translateX(0%);
+    }
+}

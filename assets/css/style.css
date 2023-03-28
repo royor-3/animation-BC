@@ -1,0 +1,38 @@
+:root {
+    --brand-font: 'bedini';
+    --text-bold: 'kanit_bold';
+    --text-semibold: 'kanit';
+    --clr-background: #0b0b0b;
+    --clr-text: #fff;
+
+    font-family: var(--text-semibold), sans-serif;
+    color: var(--clr-text);
+    background-color: var(--clr-background);
+}
+@font-face {
+    font-family: 'bedini';
+    src: url('../fonts/bedinibold/bedini-webfont.woff2') format('woff2'),
+        url('../fonts/bedinibold/bedini-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'kanit_bold';
+    src: url('../fonts/kanit/kanit-bold.woff2') format('woff2'),
+        url('../fonts/kanit/kanit-bold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'kanit';
+    src: url('../fonts/kanit/kanit-semibold.woff2') format('woff2'),
+        url('../fonts/kanit/kanit-semibold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body,
+html {
+    height: 100vh;
+    overflow: hidden;
+}

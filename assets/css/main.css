@@ -1,0 +1,102 @@
+/* Main */
+main {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+/* Title */
+.title {
+    margin: 20px;
+}
+.title h1 {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: calc(1000vw / 140);
+    line-height: 1;
+    font-family: var(--text-bold), sans-serif;
+    overflow: hidden;
+}
+
+.title h1 span {
+    animation: titleFadeUp 1500ms 450ms cubic-bezier(0.05, 0.9, 0.6, 1) forwards;
+    opacity: 0;
+}
+.title h1:nth-child(2) span {
+    color: var(--clr-background);
+    -webkit-text-stroke: var(--clr-text) 2px;
+    animation-delay: 650ms;
+    animation-duration: 1550ms;
+}
+
+@keyframes titleFadeUp {
+    0% {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0%);
+        opacity: 1;
+    }
+}
+
+/* Images */
+.images {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    flex-grow: 1;
+}
+
+.image {
+    position: relative;
+    transition: filter 300ms;
+    overflow: hidden;
+}
+.image:hover {
+    filter: saturate(40%);
+    cursor: pointer;
+}
+.image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.image::before,
+.image::after {
+    content: '';
+    position: absolute;
+    height: 100%;
+}
+
+.image:nth-child(2)::before,
+.image:nth-child(1)::before {
+    left: 0;
+}
+.image:nth-child(2)::after,
+.image:nth-child(3)::before {
+    right: 0;
+    top: 0;
+}
+.image:nth-child(2)::after,
+.image:nth-child(2)::before {
+    animation: openImage 1000ms 400ms cubic-bezier(0.28, 0.91, 0.91, 0.66)
+        forwards;
+    width: 51%;
+    background-color: var(--clr-background);
+}
+.image:nth-child(1)::before,
+.image:nth-child(3)::before {
+    width: 100%;
+    background-color: var(--clr-background);
+    animation: openImage 350ms 1400ms linear forwards;
+}
+
+@keyframes openImage {
+    100% {
+        width: 0%;
+    }
+}
